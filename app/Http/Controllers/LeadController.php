@@ -9,10 +9,11 @@ class LeadController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function index()
     {
+        permission_check('lead-management');
         return view('lead.index');
     }
 
@@ -56,7 +57,9 @@ class LeadController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('lead.edit', [
+            'lead_id' => $id,
+        ]);
     }
 
     /**
