@@ -39,7 +39,7 @@ class LeadEdit extends Component
     ];
 
     public function submitForm() {
-        sleep(5);
+        //sleep(5);
         $lead = Lead::findOrFail($this->lead_id);
         $this->validate();
 

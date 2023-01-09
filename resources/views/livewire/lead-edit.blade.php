@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        @include('components.icons.wire-loading-btn')
+        @include('components.wire-loading-update-btn')
     </form>
 
     <h1 class="font-bold text-lg mb-4">Notes</h1>
