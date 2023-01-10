@@ -1,7 +1,7 @@
 <div>
     <table class="w-full table-auto">
         <tr>
-            <th class="border px-4 py-2">Id #</th>
+            <th class="border px-4 py-2">ID</th>
             <th class="border px-4 py-2 text-left">Name</th>
             <th class="border px-4 py-2 text-left">Roles</th>
             <th class="border px-4 py-2 text-left">Email</th>
