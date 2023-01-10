@@ -33,15 +33,22 @@ class LeadEdit extends Component
         ]);
     }
 
-    protected $rules = [
-        'email' => 'email',
-        'phone' => 'required',
-    ];
+    // protected $rules = [
+    //     'email' => 'email',
+    //     'phone' => 'required',
+    // ];
 
     public function submitForm() {
-        //sleep(5);
+        // sleep(5);
+
         $lead = Lead::findOrFail($this->lead_id);
-        $this->validate();
+
+        // $this->validate();
+
+        $this->validate([
+            'email' => 'email',
+            'phone' => 'required',
+        ]);
 
         $lead->name = $this->name;
         $lead->email = $this->email;
@@ -52,10 +59,15 @@ class LeadEdit extends Component
     }
 
     public function addNote(){
-        $note = new Note();
-        $note->description = $this->note;
-        $note->lead_id = $this->lead_id;
-        $note->save();
+        $noteData = new Note();
+
+        $this->validate([
+            'note' => 'required',
+        ]);
+
+        $noteData->description = $this->note;
+        $noteData->lead_id = $this->lead_id;
+        $noteData->save();
 
         $this->note = '';
 

@@ -34,10 +34,11 @@ class DatabaseSeeder extends Seeder
         Lead::factory(100)->create();
 
         $course = Course::create([
-            'name' => 'Test Course',
-            'description' => 'Test Course Description',
+            'name' => 'Laravel',
+            'description' => 'Laravel Course Description',
             'image' => 'https://laravel.com/img/logomark.min.svg',
             'user_id' => $teacher->id,
+            'price' => 500,
         ]);
 
         Curriculum::factory(10)->create();

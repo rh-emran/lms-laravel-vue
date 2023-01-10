@@ -39,6 +39,11 @@
         <div class="mb-4">
             <textarea wire:model.lazy="note" class="lms-input" placeholder="Type note"></textarea>
         </div>
+
+        @error('note')
+            <div class="text-red-500 text-sm mt-2 mb-4">{{ $message }}</div>
+        @enderror
+
         <button class="lms-btn" type="submit">Save</button>
     </form>
 
