@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
 
         $course = Course::create([
             'name' => 'Laravel',
+            'slug' => 'laravel',
             'description' => 'Laravel Course Description',
             'image' => 'https://laravel.com/img/logomark.min.svg',
             'user_id' => $teacher->id,

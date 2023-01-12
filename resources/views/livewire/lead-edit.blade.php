@@ -26,7 +26,10 @@
             </div>
         </div>
 
-        @include('components.wire-loading-update-btn')
+        @include('components.wire-loading-btn', [
+            'for' => 'submitForm',
+            'text' => 'Update',
+        ])
     </form>
 
     <h1 class="font-bold text-lg mb-4">Notes</h1>

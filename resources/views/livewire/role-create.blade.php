@@ -26,5 +26,8 @@
         @enderror
     </div>
 
-    @include('components.wire-loading-submit-btn')
+    @include('components.wire-loading-btn', [
+        'for' => 'formSubmit',
+        'text' => 'Submit',
+    ])
 </form>

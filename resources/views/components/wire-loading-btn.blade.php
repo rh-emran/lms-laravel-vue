@@ -1,4 +1,4 @@
-<div wire:loading.flex class="items-center">
+<div wire:target='{{ $for }}' wire:loading.flex class="items-center">
 
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="w-4 h-4 animate-spin">
@@ -8,4 +8,5 @@
     <span class="pl-2">Loading...</span>
 </div>
 
-<button wire:loading.remove class="lms-btn" type="submit">Update</button>
+<button wire:target='{{ $for }}' wire:loading.remove class="lms-btn"
+    type="submit">{{ $text }}</button>

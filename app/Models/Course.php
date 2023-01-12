@@ -9,11 +9,23 @@ class Course extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'price',
+        'user_id'
+    ];
+
     public function curriculum() {
         return $this->hasMany(Curriculum::class);
     }
 
     public function students() {
         return $this->belongsToMany(User::class, 'course_student', 'course_id', 'user_id');
+    }
+
+    public function teacher() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

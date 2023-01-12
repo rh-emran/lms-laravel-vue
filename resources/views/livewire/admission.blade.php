@@ -35,7 +35,10 @@
                         placeholder="Payment now" />
                 </div>
 
-                @include('components.wire-loading-submit-btn')
+                @include('components.wire-loading-btn', [
+                    'for' => 'admit',
+                    'text' => 'Submit',
+                ])
             @endif
         </form>
     @endif
