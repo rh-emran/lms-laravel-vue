@@ -13,11 +13,12 @@ class Course extends Model
         'name',
         'slug',
         'description',
+        'image',
         'price',
         'user_id'
     ];
 
-    public function curriculum() {
+    public function curriculums() {
         return $this->hasMany(Curriculum::class);
     }
 

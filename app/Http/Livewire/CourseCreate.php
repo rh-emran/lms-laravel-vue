@@ -14,6 +14,7 @@ class CourseCreate extends Component
 {
     public $name;
     public $description;
+    public $image;
     public $price;
 
     public $selectedDays = [];
@@ -50,8 +51,9 @@ class CourseCreate extends Component
 
         $course = Course::create([
             'name' => $this->name,
-            'slug' => str_replace(' ', '-', $this->name),
+            'slug' => strtolower(str_replace(' ', '-', $this->name)),
             'description' => $this->description,
+            'image' => $this->image,
             'price' => $this->price,
             'user_id' => auth()->user()->id,
         ]);
@@ -62,6 +64,7 @@ class CourseCreate extends Component
         $endDate =   new DateTime($this->end_date);
         $interval =  new DateInterval('P1D');
         $date_range = new DatePeriod($start_date, $interval, $endDate);
+        //var_dump($date_range);
         foreach ($date_range as $date) {
             foreach ($this->selectedDays as $day) {
                 if ($date->format("l") === $day) {
@@ -69,13 +72,13 @@ class CourseCreate extends Component
                         'name' => $this->name . ' #' . $i++,
                         'week_day' => $day,
                         'class_time' => $this->time,
-                        'end_date' => $this->end_date,
+                        'class_date' => $date->format("Y-m-d"),
                         'course_id' => $course->id,
                     ]);
                 }
             }
         }
-        // $i++;
+        $i++;
 
         flash()->addSuccess('Course created successfully');
 

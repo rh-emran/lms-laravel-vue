@@ -12,22 +12,24 @@
             <tr>
                 <td class="border px-4 py-2 text-center">{{ $course->id }}</td>
                 <td class="border px-4 py-2">{{ $course->name }}</td>
-                <td class="border px-4 py-2">{{ $course->teacher->name }}</td>
+                <td class="border px-4 py-2">
+                    <span class="px-2 py-2 bg-blue-400 text-white rounded text-sm">{{ $course->teacher->name }}</span>
+                </td>
                 <td class="border px-4 py-2 text-center">{{ $course->price }}</td>
                 <td class="border px-4 py-2 text-center">
                     <img class="w-14 mx-auto" src="{{ $course->image }}" alt="{{ $course->name }}">
                 </td>
                 <td class="border px-4 py-2 text-center">
                     <div class="flex justify-center items-center">
-                        <a class="lms-view-button" href="">
+                        <a class="lms-view-button" href="{{ route('course.show', $course->id) }}">
                             @include('components.icons.eye')
                         </a>
                         <a class="lms-edit-button mx-2" href="">
                             @include('components.icons.edit')
                         </a>
-                        <form onsubmit="confirm('Are you sure you want to delete this items')"
-                            wire:submit.prevent="courseDelete({{ $course->id }})">
-                            <button type="submit" class="lms-delete-button mt-[3px]">
+                        <form wire:submit.prevent="courseDelete({{ $course->id }})">
+                            <button onsubmit="confirm('Are you sure you want to delete this items')" type="submit"
+                                class="lms-delete-button mt-[3px]">
                                 @include('components.icons.trash')
                             </button>
                         </form>
