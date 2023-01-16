@@ -1,0 +1,37 @@
+<form wire:submit.prevent='formSubmit'>
+    <div class="mb-4">
+        @include('components.form-field', [
+            'name' => 'name',
+            'label' => 'Name',
+            'type' => 'text',
+            'placeholder' => 'Question name',
+            'required' => 'required',
+        ])
+    </div>
+
+    @foreach ($answers as $answer)
+        <div class="mb-4">
+            @include('components.form-field', [
+                'name' => 'answer_' . $answer,
+                'label' => 'Answer ' . Str::ucfirst($answer),
+                'type' => 'text',
+                'placeholder' => 'Type answer ' . Str::ucfirst($answer),
+                'required' => 'required',
+            ])
+        </div>
+    @endforeach
+
+    <div class="mb-4">
+        <label for="correct_answer">Correct answer</label>
+        <select class="lms-input" wire:model.prevent="correct_answer" id="correct_answer">
+            @foreach ($answers as $answer)
+                <option value="{{ $answer }}">{{ ucfirst($answer) }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    @include('components.wire-loading-btn', [
+        'for' => 'formSubmit',
+        'text' => 'Submit',
+    ])
+</form>

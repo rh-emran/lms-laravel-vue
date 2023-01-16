@@ -22,7 +22,6 @@ class CurriculumShow extends Component
 
         $curriculum = Curriculum::with('notes')->findOrFail($this->curriculum_id);
 
-        //dd($curriculum);
 
         return view('livewire.curriculum-show',[
             'curriculum' => $curriculum,
@@ -30,19 +29,19 @@ class CurriculumShow extends Component
         ]);
     }
 
-    // public function addNote(){
-    //      $this->validate();
-    //       $curriculum = Curriculum::findOrFail($this->curriculum_id);
-    //       $note = new Note();
-    //       $note->description = $this->note;
-    //       $note->save();
+    public function addNote(){
+         $this->validate();
+          $curriculum = Curriculum::findOrFail($this->curriculum_id);
+          $note = new Note();
+          $note->description = $this->note;
+          $note->save();
 
-    //       $curriculum->notes()->attach($note->id);
+          $curriculum->notes()->attach($note->id);
 
-    //       $this->note = '';
+          $this->note = '';
 
-    //       flash()->addSuccess('Note added successfully!');
-    // }
+          flash()->addSuccess('Note added successfully!');
+    }
 
     public function attendance($student_id) {
         Attendance::create([
