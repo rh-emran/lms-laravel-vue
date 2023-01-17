@@ -35,7 +35,7 @@ class QuizEdit extends Component
 
         flash()->addSuccess('Question added successfully.');
 
-        return redirect(route('quiz.show', $this->quiz->id));
+        return redirect(route('quiz.edit', $this->quiz->id));
     }
 
     public function questionDelete($id) {
@@ -43,6 +43,6 @@ class QuizEdit extends Component
 
         flash()->addSuccess('Quiz question deleted successfully.');
 
-        return redirect(route('quiz.show', $this->quiz->id));
+        return redirect(route('quiz.edit', $this->quiz->id));
     }
 }

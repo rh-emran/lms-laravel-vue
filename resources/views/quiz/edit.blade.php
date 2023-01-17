@@ -2,12 +2,11 @@
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Quiz edit: ' . $quiz->name) }}
+                {{ __('Quiz: ' . $quiz->name) }}
             </h2>
 
             <a class="lms-btn" href="{{ route('quiz.index') }}">Back</a>
         </div>
-
     </x-slot>
 
     <div class="py-12">

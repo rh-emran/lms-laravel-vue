@@ -13,9 +13,12 @@
                         <div class="mb-4">
                             <label for="name" class="lms-label">Name</label>
                             <input type="text" name="name" id="name" class="lms-input"
-                                placeholder="Quiz name">
+                                placeholder="Quiz name" required>
                         </div>
-                        <button type="submit" class="lms-btn">Add a quiz</button>
+                        @error('name')
+                            <div class="text-red-500 mb-4">{{ $message }}</div>
+                        @enderror
+                        <button type="submit" class="lms-btn">Add quiz</button>
                     </form>
                 </div>
             </div>

@@ -16,19 +16,24 @@ class QuizController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required|unique:quizzes',
+        ]);
+
         $quiz = Quiz::create([
             'name' => $request->name,
         ]);
 
-        return redirect()->route('quiz.show', $quiz->id);
+        return redirect()->route('quiz.edit', $quiz->id);
     }
 
     public function show(Quiz $quiz) {
-        // dd($quiz->id);
+        // dd($quiz->name);
 
         return view('quiz.show', [
             'quiz' => $quiz,
         ]);
+
     }
 
     public function edit(Quiz $quiz) {
