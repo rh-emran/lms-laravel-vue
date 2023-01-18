@@ -11,7 +11,7 @@ class InvoiceIndex extends Component
     use WithPagination;
     public function render()
     {
-        $invoices = Invoice::paginate(50);
+        $invoices = Invoice::paginate(20);
         return view('livewire.invoice-index', [
             'invoices' => $invoices,
         ]);

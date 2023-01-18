@@ -5,7 +5,8 @@
         <h2 class="font-bold text-red-600">Wrong Answers: {{ $wrong_answers }}</h2>
         <h2 class="font-bold text-orange-600">Not Answered: {{ $not_answered }}</h2>
     </div>
-    <span class="bg-green-100 bg-red-100"></span>
+    <span class="bg-green-100"></span>
+    <span class="bg-red-100"></span>
     @php
         $i = 1;
         foreach ($quiz->questions as $question):
