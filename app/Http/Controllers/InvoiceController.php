@@ -39,7 +39,7 @@ class InvoiceController extends Controller
         // return $invoice->stream();
 
         return view('invoice.show', [
-            'invoice_id' => $id,
+            'invoice' => Invoice::findOrFail($id),
         ]);
     }
 
