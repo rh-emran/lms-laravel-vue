@@ -21,16 +21,18 @@
                         <form method="post" action="{{ route('stripe-payment') }}">@csrf
                             <div class="flex mb-4">
                                 <div class="w-full">
-                                    <input name="card_no" type="number" class="lms-input" placeholder="Card number">
+                                    <input name="card_no" value="4242424242424242" type="number" class="lms-input"
+                                        placeholder="Card number">
                                 </div>
 
                                 <div class="min-w-max ml-4">
-                                    <input name="card_expiry_date" type="text" class="lms-input"
+                                    <input name="card_expiry_date" value="12/30" type="text" class="lms-input"
                                         placeholder="Expiry month/year">
                                 </div>
 
                                 <div class="min-w-max ml-4">
-                                    <input name="card_ccv" type="text" class="lms-input" placeholder="CCV">
+                                    <input name="card_ccv" value="1234" type="text" class="lms-input"
+                                        placeholder="CCV">
                                 </div>
 
                                 <div class="min-w-max ml-4">
